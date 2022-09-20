@@ -1,0 +1,30 @@
+{
+    "name": "soltancode/send-request",
+    "description": "Demo desc",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "soltancode",
+        "curl",
+        "guzzle",
+        "laravel",
+        "json",
+        "rest",
+        "api"
+    ],
+    "autoload": {
+        "psr-4": {
+            "Soltancode\\SendRequest\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Soltan Abilgasimzada",
+            "email": "soltancode@gmail.com",
+            "homepage": "https://soltancode.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    }
+}
