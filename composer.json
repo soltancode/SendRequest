@@ -10,7 +10,11 @@
         "laravel",
         "json",
         "rest",
-        "api"
+        "api",
+        "php",
+        "http-client",
+        "httpclient",
+        "requests"
     ],
     "autoload": {
         "psr-4": {
