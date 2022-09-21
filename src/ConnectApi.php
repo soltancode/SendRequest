@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Response;
 class ConnectApi
 {
     /**
-     * @param string $service Required | For example: http://soltancode.com
+     * @param string $service Required | For example: https://soltancode.com
      * @param string $request Required | For example: /user/validation
      * @param string $method Required | For example: post
      * @param array $params For example: ["userId" => 3]
