@@ -40,7 +40,7 @@ $curl->get($baseUrl, $service, $params); # https://dummyjson.com/products/search
 ```
 
 ```php
-$baseUrl = "https://www.example.com";
+$baseUrl = "https://api.example.com";
 $service = "/login";
 
 $curl = new ConnectApi();
@@ -49,6 +49,41 @@ $curl->post($baseUrl, $service, [
     'password' => 'mypassword'
 ]);
 ```
+
+```php
+$baseUrl = "https://api.example.com";
+$service = "/users/1";
+
+$curl = new ConnectApi();
+$curl->put($baseUrl, $service, [
+    'first_name' => 'John',
+    'last_name' => 'Doe'
+]);
+```
+
+```php
+$baseUrl = "https://api.example.com";
+$service = "/users/1";
+
+$curl = new ConnectApi();
+$curl->patch($baseUrl, $service, [
+    'first_name' => 'John'
+]);
+```
+
+```php
+$baseUrl = "https://api.example.com";
+$service = "/users";
+
+$curl = new ConnectApi();
+$curl->delete($baseUrl, $service, [
+    'id' => 'John'
+]);
+```
+
+## Other Packages
+[ReturnResponse](https://github.com/soltancode/ReturnResponse) - It's a return helper for showing standard json responses.
+
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
