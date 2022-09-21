@@ -5,7 +5,7 @@ namespace Soltancode\SendRequest;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Response;
 
-class SendRequest
+class ConnectApi
 {
     /**
      * @param string $service Required | For example: http://soltancode.com
