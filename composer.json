@@ -1,8 +1,8 @@
 {
     "name": "soltancode/send-request",
-    "description": "PHP cURL class that makes it easy to send HTTP requests and integrate with web APIs.",
     "type": "library",
-    "license": "MIT",
+    "description": "PHP cURL class that makes it easy to send HTTP requests and integrate with web APIs.",
+    "version": "dev-main",
     "keywords": [
         "soltancode",
         "curl",
@@ -16,11 +16,7 @@
         "httpclient",
         "requests"
     ],
-    "autoload": {
-        "psr-4": {
-            "Soltancode\\SendRequest\\": "src/"
-        }
-    },
+    "license": "MIT",
     "authors": [
         {
             "name": "Soltan Abilgasimzada",
@@ -29,8 +25,16 @@
         }
     ],
     "require": {
-        "php": "^8.1",
-        "illuminate/support": "v9.31.0",
-        "illuminate/http": "v9.31.0"
+        "php": "^7.3|^8.0",
+        "illuminate/support": "^9.0",
+        "illuminate/http": "^9.0"
+    },
+    "autoload": {
+        "files": [
+            "src/helpers.php"
+        ],
+        "psr-4": {
+            "Soltancode\\SendRequest\\": "src/"
+        }
     }
 }
