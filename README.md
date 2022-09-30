@@ -16,11 +16,8 @@ composer require soltancode/send-request
 
 ## Usage
 
-#### Installation:
+#### If you use it as class (facade), import this:
 ```php
-require __DIR__ . '/vendor/autoload.php';
-
-# If you use it as class (facade), import this.
 use Soltancode\SendRequest\Facades\SendRequest;
 ```
 
