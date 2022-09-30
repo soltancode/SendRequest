@@ -2,7 +2,7 @@
     "name": "soltancode/send-request",
     "type": "library",
     "description": "PHP cURL class that makes it easy to send HTTP requests and integrate with web APIs.",
-    "version": "dev-main",
+    "version": "v1.0.0",
     "keywords": [
         "soltancode",
         "curl",
@@ -35,6 +35,16 @@
         ],
         "psr-4": {
             "Soltancode\\SendRequest\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Soltancode\\SendRequest\\SendRequestServiceProvider"
+            ],
+            "aliases": {
+                "ReturnResponse": "Soltancode\\SendRequest\\Facades\\SendRequest"
+            }
         }
     }
 }
