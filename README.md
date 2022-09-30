@@ -19,64 +19,93 @@ composer require soltancode/send-request
 ```php
 require __DIR__ . '/vendor/autoload.php';
 
-use Soltancode\SendRequest\ConnectApi;
+# If you use it as class (facade), import this.
+use Soltancode\SendRequest\Facades\SendRequest;
 
-$baseUrl = "https://dummyjson.com";
-$service = "/products/1";
+// $baseUrl = "https://dummyjson.com";
+// $service = "/products/1";
 
-$curl = new ConnectApi();
-$curl->get($baseUrl, $service);
+# Using as class:
+SendRequest::get($baseUrl, $service);
+
+# Using as helper:
+sendRequest()->get($baseUrl, $service)
 ```
 
 ```php
-$baseUrl = "https://dummyjson.com";
-$service = "/products/1";
-$params  = [
-    'q' => 'phone'
-]
+// $baseUrl = "https://dummyjson.com";
+// $service = "/products/1";
+// $params  = [
+//     'q' => 'phone'
+// ];
 
-$curl = new ConnectApi();
-$curl->get($baseUrl, $service, $params); # https://dummyjson.com/products/search?q=phone
+# Using as class:
+SendRequest::get($baseUrl, $service, $params); # https://dummyjson.com/products/search?q=phone
+
+# Using as helper:
+sendRequest()->get($baseUrl, $service, $params); # https://dummyjson.com/products/search?q=phone
 ```
 
 ```php
-$baseUrl = "https://api.example.com";
-$service = "/login";
+// $baseUrl = "https://api.example.com";
+// $service = "/login";
 
-$curl = new ConnectApi();
-$curl->post($baseUrl, $service, [
+# Using as class:
+SendRequest::post($baseUrl, $service, [
+    'username' => 'myusername',
+    'password' => 'mypassword'
+]);
+
+# Using as helper:
+sendRequest()->post($baseUrl, $service, [
     'username' => 'myusername',
     'password' => 'mypassword'
 ]);
 ```
 
 ```php
-$baseUrl = "https://api.example.com";
-$service = "/users/1";
+// $baseUrl = "https://api.example.com";
+// $service = "/users/1";
 
-$curl = new ConnectApi();
-$curl->put($baseUrl, $service, [
+# Using as class:
+SendRequest::put($baseUrl, $service, [
+    'first_name' => 'John',
+    'last_name' => 'Doe'
+]);
+
+# Using as helper:
+sendRequest()->put($baseUrl, $service, [
     'first_name' => 'John',
     'last_name' => 'Doe'
 ]);
 ```
 
 ```php
-$baseUrl = "https://api.example.com";
-$service = "/users/1";
+// $baseUrl = "https://api.example.com";
+// $service = "/users/1";
 
-$curl = new ConnectApi();
-$curl->patch($baseUrl, $service, [
+# Using as class:
+SendRequest::patch($baseUrl, $service, [
+    'first_name' => 'John'
+]);
+
+# Using as helper:
+sendRequest()->patch($baseUrl, $service, [
     'first_name' => 'John'
 ]);
 ```
 
 ```php
-$baseUrl = "https://api.example.com";
-$service = "/users";
+// $baseUrl = "https://api.example.com";
+// $service = "/users";
 
-$curl = new ConnectApi();
-$curl->delete($baseUrl, $service, [
+# Using as class:
+SendRequest::delete($baseUrl, $service, [
+    'id' => 'John'
+]);
+
+# Using as helper:
+sendRequest()->delete($baseUrl, $service, [
     'id' => 'John'
 ]);
 ```
