@@ -1,6 +1,6 @@
 # SendRequest
 
-PHP cURL class that makes it easy to send HTTP requests and integrate with web APIs.
+Simple package for Laravel Framework that makes it easy to send HTTP requests and integrate with web APIs.
 
 [![Packagist Version](https://img.shields.io/packagist/v/soltancode/send-request?label=stable)](https://packagist.org/packages/soltancode/send-request)
 [![Packagist Stars](https://img.shields.io/packagist/stars/soltancode/send-request)](https://packagist.org/packages/soltancode/send-request)
@@ -16,12 +16,16 @@ composer require soltancode/send-request
 
 ## Usage
 
+#### Installation:
 ```php
 require __DIR__ . '/vendor/autoload.php';
 
 # If you use it as class (facade), import this.
 use Soltancode\SendRequest\Facades\SendRequest;
+```
 
+#### GET Request:
+```php
 // $baseUrl = "https://dummyjson.com";
 // $service = "/products/1";
 
@@ -32,6 +36,7 @@ SendRequest::get($baseUrl, $service);
 sendRequest()->get($baseUrl, $service)
 ```
 
+#### GET Request with params:
 ```php
 // $baseUrl = "https://dummyjson.com";
 // $service = "/products/1";
@@ -46,6 +51,7 @@ SendRequest::get($baseUrl, $service, $params); # https://dummyjson.com/products/
 sendRequest()->get($baseUrl, $service, $params); # https://dummyjson.com/products/search?q=phone
 ```
 
+#### POST Request with params:
 ```php
 // $baseUrl = "https://api.example.com";
 // $service = "/login";
@@ -63,6 +69,7 @@ sendRequest()->post($baseUrl, $service, [
 ]);
 ```
 
+#### PUT Request with params:
 ```php
 // $baseUrl = "https://api.example.com";
 // $service = "/users/1";
@@ -80,6 +87,7 @@ sendRequest()->put($baseUrl, $service, [
 ]);
 ```
 
+#### PATCH Request with params:
 ```php
 // $baseUrl = "https://api.example.com";
 // $service = "/users/1";
@@ -95,6 +103,7 @@ sendRequest()->patch($baseUrl, $service, [
 ]);
 ```
 
+#### DELETE Request with params:
 ```php
 // $baseUrl = "https://api.example.com";
 // $service = "/users";
