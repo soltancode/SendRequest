@@ -2,7 +2,7 @@
     "name": "soltancode/send-request",
     "type": "library",
     "description": "PHP cURL class that makes it easy to send HTTP requests and integrate with web APIs.",
-    "version": "dev-develop",
+    "version": "dev-main",
     "keywords": [
         "soltancode",
         "curl",
