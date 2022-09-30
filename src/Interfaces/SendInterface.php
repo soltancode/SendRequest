@@ -1,12 +1,10 @@
 <?php
 
-namespace Soltancode\SendRequest;
+namespace Soltancode\SendRequest\Interfaces;
 
-use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Response;
-use Soltancode\SendRequest\Interfaces\SendInterface;
+use Illuminate\Http\JsonResponse;
 
-class ConnectApi implements SendInterface
+interface SendInterface
 {
     /**
      * @param string $service Required | For example: https://soltancode.com
@@ -16,18 +14,7 @@ class ConnectApi implements SendInterface
      * @param array $headers For example: ["Authorization" => "Bearer token"]
      * @return mixed
      */
-    public function send(string $service, string $request, string $method, array $params = [], array $headers = []): mixed
-    {
-        try {
-            $url = $service.$request;
-            $response = Http::withHeaders($headers)->acceptJson()->$method($url, $params);
-            $data = $response->object();
-
-            return $data;
-        } catch(\Exception $e) {
-            return Response::json([$e->getMessage()], 500);
-        }
-    }
+    public function send(string $service, string $request, string $method, array $params = [], array $headers = []): mixed;
 
     /**
      * @param string $service Required | For example: http://soltancode.com
@@ -36,10 +23,7 @@ class ConnectApi implements SendInterface
      * @param array $headers For example: ["Authorization" => "Bearer token"]
      * @return mixed
      */
-    public function get(string $service, string $request, array $params = [], array $headers = []): mixed
-    {
-        return $this->send($service, $request, "get", $params, $headers);
-    }
+    public function get(string $service, string $request, array $params = [], array $headers = []): mixed;
 
     /**
      * @param string $service Required | For example: http://soltancode.com
@@ -48,10 +32,7 @@ class ConnectApi implements SendInterface
      * @param array $headers For example: ["Authorization" => "Bearer token"]
      * @return mixed
      */
-    public function post(string $service, string $request, array $params = [], array $headers = []): mixed
-    {
-        return $this->send($service, $request, "post", $params, $headers);
-    }
+    public function post(string $service, string $request, array $params = [], array $headers = []): mixed;
 
     /**
      * @param string $service Required | For example: http://soltancode.com
@@ -60,10 +41,7 @@ class ConnectApi implements SendInterface
      * @param array $headers For example: ["Authorization" => "Bearer token"]
      * @return mixed
      */
-    public function put(string $service, string $request, array $params = [], array $headers = []): mixed
-    {
-        return $this->send($service, $request, "put", $params, $headers);
-    }
+    public function put(string $service, string $request, array $params = [], array $headers = []): mixed;
 
     /**
      * @param string $service Required | For example: http://soltancode.com
@@ -72,10 +50,7 @@ class ConnectApi implements SendInterface
      * @param array $headers For example: ["Authorization" => "Bearer token"]
      * @return mixed
      */
-    public function patch(string $service, string $request, array $params = [], array $headers = []): mixed
-    {
-        return $this->send($service, $request, "patch", $params, $headers);
-    }
+    public function patch(string $service, string $request, array $params = [], array $headers = []): mixed;
 
     /**
      * @param string $service Required | For example: http://soltancode.com
@@ -84,8 +59,5 @@ class ConnectApi implements SendInterface
      * @param array $headers For example: ["Authorization" => "Bearer token"]
      * @return mixed
      */
-    public function delete(string $service, string $request, array $params = [], array $headers = []): mixed
-    {
-        return $this->send($service, $request, "delete", $params, $headers);
-    }
+    public function delete(string $service, string $request, array $params = [], array $headers = []): mixed;
 }

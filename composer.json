@@ -32,5 +32,15 @@
         "php": "^8.1",
         "illuminate/support": "v9.31.0",
         "illuminate/http": "v9.31.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Soltancode\\SendRequest\\SendRequestServiceProvider"
+            ],
+            "aliases": {
+                "ReturnResponse": "Soltancode\\SendRequest\\Facades\\SendRequest"
+            }
+        }
     }
 }
