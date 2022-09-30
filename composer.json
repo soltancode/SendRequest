@@ -1,7 +1,7 @@
 {
     "name": "soltancode/send-request",
     "type": "library",
-    "description": "PHP cURL class that makes it easy to send HTTP requests and integrate with web APIs.",
+    "description": "Simple package for Laravel that makes it easy to send HTTP requests and integrate with web APIs.",
     "version": "v1.0.0",
     "keywords": [
         "soltancode",
