@@ -2,8 +2,9 @@
 
 namespace Soltancode\SendRequest\Interfaces;
 
-use Illuminate\Http\JsonResponse;
-
+/**
+ * @property int $timeoutSeconds;
+ */
 interface SendInterface
 {
     /**
@@ -15,6 +16,12 @@ interface SendInterface
      * @return mixed
      */
     public function send(string $service, string $request, string $method, array $params = [], array $headers = []): mixed;
+
+    /**
+     * @param int $seconds
+     * @return mixed
+     */
+    public function timeout(int $seconds): mixed;
 
     /**
      * @param string $service Required | For example: http://soltancode.com

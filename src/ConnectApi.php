@@ -24,21 +24,19 @@ class ConnectApi implements SendInterface
     public function send(string $service, string $request, string $method, array $params = [], array $headers = []): mixed
     {
         try {
-            $url = $service.$request;
+            $url = $service . $request;
             $response = Http::withHeaders($headers)->timeout($this->timeoutSeconds)->acceptJson()->$method($url, $params);
-            $data = $response->object();
-
-            return $data;
-        } catch(\Exception $e) {
+            return $response->object();
+        } catch (\Exception $e) {
             return Response::json([$e->getMessage()], 500);
         }
     }
 
     /**
      * @param int $seconds
-     * @return $this
+     * @return mixed
      */
-    public function timeout(int $seconds): ConnectApi
+    public function timeout(int $seconds): mixed
     {
         $this->timeoutSeconds = $seconds;
         return $this;

@@ -116,6 +116,12 @@ sendRequest()->delete($baseUrl, $service, [
 ]);
 ```
 
+### Timeout
+The timeout method may be used to specify the maximum number of seconds to wait for a response:
+```php
+$response = sendRequest()->timeout(3)->post(/* ... */);
+```
+
 ## Other Packages
 [ReturnResponse](https://github.com/soltancode/ReturnResponse) - It's a return helper for showing standard json responses.
 
