@@ -9,6 +9,11 @@ use Soltancode\SendRequest\Interfaces\SendInterface;
 class ConnectApi implements SendInterface
 {
     /**
+     * @var int
+     */
+    private int $timeoutSeconds = 30;
+
+    /**
      * @param string $service Required | For example: https://soltancode.com
      * @param string $request Required | For example: /user/validation
      * @param string $method Required | For example: post
@@ -20,13 +25,23 @@ class ConnectApi implements SendInterface
     {
         try {
             $url = $service.$request;
-            $response = Http::withHeaders($headers)->acceptJson()->$method($url, $params);
+            $response = Http::withHeaders($headers)->timeout($this->timeoutSeconds)->acceptJson()->$method($url, $params);
             $data = $response->object();
 
             return $data;
         } catch(\Exception $e) {
             return Response::json([$e->getMessage()], 500);
         }
+    }
+
+    /**
+     * @param int $seconds
+     * @return $this
+     */
+    public function timeout(int $seconds): ConnectApi
+    {
+        $this->timeoutSeconds = $seconds;
+        return $this;
     }
 
     /**
